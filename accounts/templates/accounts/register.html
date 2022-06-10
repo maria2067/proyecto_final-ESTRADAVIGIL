@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block contenido %}
+
+<h1>Register</h1>
+<form class="form" method="post">
+  {% csrf_token %}
+  
+  {{ form.as_p }}
+
+  <button type="submit" id="submit">Registrarse</button>
+</form>
+
+Already Have An Account? <a class="ml-2" href="{% url 'login'  %}">Login</a>
+
+
+
+{% endblock contenido %}
