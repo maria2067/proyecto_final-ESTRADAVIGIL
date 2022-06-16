@@ -12,9 +12,10 @@ def feedback_view(request):
             form.save()
             messages.success(request, f"Su comentario ha sido publicado, muchas gracias!")
             return redirect("feedback")
-            
 
-    form = FeedbackForm()
+
+    else: 
+        form = FeedbackForm()
 
     context = {
         'form': form,

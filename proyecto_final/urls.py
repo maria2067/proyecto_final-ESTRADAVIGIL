@@ -18,7 +18,8 @@ from django.urls import path
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.conf.urls import include
-
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 def pagina_principal(request):
@@ -42,3 +43,11 @@ urlpatterns = [
     path('feedback/', include('feedback.urls')),
     
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# add a flag for
+# handling the 404 error
+#handler404 = 'pages.views.error_404_view'
