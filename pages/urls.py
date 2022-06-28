@@ -1,12 +1,17 @@
-from django.contrib import admin
 from django.urls import path
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.conf.urls import include
+from .views import (
+    PostListView,
+    PostDetailView,
+    PostCreateView,
+    # PostUpdateView,
+    # PostDeleteView
+)
 from . import views
 
-
-
 urlpatterns = [
-    path('', views.pagina_principal_pages, name="pages"),
+    path('', PostListView.as_view(), name='pages'),
+    path('<int:pk>/', PostDetailView.as_view(), name='page-detail'),
+    path('new/', PostCreateView.as_view(), name='page-create'),
+    # path('<int:pk>/update/', PostUpdateView.as_view(), name='page-update'),
+    # path('<int:pk>/delete/', PostDeleteView.as_view(), name='page-delete'),
 ]

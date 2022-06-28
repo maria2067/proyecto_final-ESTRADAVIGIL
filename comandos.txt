@@ -1,0 +1,9 @@
+python3 -m venv .venv       <-  ESTO NO HAY QUE VOLVER A CORRERLO
+
+
+
+source .venv/bin/activate
+.venv/bin/python manage.py runserver
+.venv/bin/python manage.py makemigrations
+.venv/bin/python manage.py migrate
+.venv/bin/python manage.py shell

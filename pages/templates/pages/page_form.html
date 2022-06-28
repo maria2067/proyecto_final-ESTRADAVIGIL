@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block contenido %}
+
+<h1>Create page</h1>
+<form class="form" method="post">
+    {% csrf_token %}
+    
+    {{ form.media }}
+    {{ form.as_p }}
+
+  <button type="submit" id="submit">Post</button>
+</form>
+
+
+{% endblock contenido %}

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Maria Estrada Blog</title>
 	<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}"> <!-- https://fontawesome.com/ -->
-	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> https://fonts.google.com/
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/templatemo-xtra-blog.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -55,13 +55,17 @@ https://templatemo.com/tm-553-xtra-blog
                     </a></li>
                     
                     {% if user.is_authenticated %}
+                        <li class="tm-nav-item"><a href="{% url 'page-create' %}" class="tm-nav-link">
+                            <i class="far fa-comments"></i>
+                            Create Post
+                        </a></li>
                         <li class="tm-nav-item"><a href="{% url 'profile' %}" class="tm-nav-link">
                             <i class="far fa-comments"></i>
                             Profile
                         </a></li>
                         <li class="tm-nav-item"><a href="{% url 'logout' %}" class="tm-nav-link">
                             <i class="far fa-comments"></i>
-                                Logout
+                            Logout
                         </a></li>
                     {% else %}
                         <li class="tm-nav-item"><a href="{% url 'login' %}" class="tm-nav-link">
