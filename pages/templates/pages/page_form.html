@@ -1,16 +1,38 @@
 {% extends "index.html" %}
-
 {% block contenido %}
 
-<h1>Create page</h1>
-<form class="form" method="post">
+<h1>{{ title }}</h1>
+<form class="form" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     
     {{ form.media }}
-    {{ form.as_p }}
 
+    {% if creando %}
+        {{ form.image.label_tag }}
+        {{ form.image.errors }}
+        {{ form.image }}
+    {% elif actualizando and user.is_staff %}
+        {{ form.image.label_tag }}
+        {{ form.image.errors }}
+        {{ form.image }}
+    {% else %}
+      <div class="text-muted">Only a user with admin rights can modify a post image</div>
+    {% endif %}
+    
+    <br>
+  
+    {{ form.title.label_tag }}
+    
+      {{ form.title.errors }}
+      {{ form.title }}
+
+      <br>
+  
+    {{ form.content.label_tag }}
+      {{ form.content.errors }}
+      {{ form.content }}
+      
+  <br>
   <button type="submit" id="submit">Post</button>
 </form>
-
-
 {% endblock contenido %}

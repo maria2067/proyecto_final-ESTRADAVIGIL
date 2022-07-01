@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block contenido %}
+    <h2>Are you sure you want to delete the post "{{ post.title }}"</h2>
+    <form class="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <button class="btn btn-outline-danger" type="submit" id="submit">Yes, Delete this post</button>
+        <a class="btn btn-outline-secondary" href="{% url 'page-detail' post.id %}">Cancel</a>
+    </form>
+{% endblock contenido %}
+
+
