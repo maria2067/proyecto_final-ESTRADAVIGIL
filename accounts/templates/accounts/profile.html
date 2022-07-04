@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 
-{% block contenido %}
 
+{% block contenido %}
 
 <h1>Profile</h1>
 <img src="{{  user.profile.image.url}}" alt="Imagen personal">
@@ -17,10 +17,15 @@
         {{ u_form }}
         {{ p_form }}
     </fieldset>
+    <br>
+    <div>
+        <a href="{% url 'password-reset' %}">Change password</a>
+    </div>
+    <br>
+    <br>
     <div class="form-group">
         <button class="btn btn-outline-info" type="submit">Update</button>
     </div>
 </form>
-
 
 {% endblock contenido %}
